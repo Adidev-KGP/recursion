@@ -4,6 +4,8 @@ using namespace std;
 void printF(int ind, vector<int> &ds, int arr[], int n){
     if(ind == n){
         for(auto it : ds)cout<<it<<" ";
+        if(ds.size()==0)cout<<"{}";
+        
         cout<<endl;
         return;
     }
