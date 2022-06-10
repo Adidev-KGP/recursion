@@ -1,16 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void solve(int ind,int sum,vector<int> &arr){
+void solve(int ind,int sum,vector<int> &arr,vector<int> &ds){
     if(ind<0){
-        cout<<sum<<" ";
+        ds.push_back(sum);
         return;
     }
     //take
-    solve(ind-1,sum-arr[ind],arr);
+    solve(ind-1,sum-arr[ind],arr,ds);
     
     //not take
-    solve(ind-1,sum,arr);
+    solve(ind-1,sum,arr,ds);
     
 }
 
@@ -25,8 +25,9 @@ signed main(){
         sum+=x;
         arr.push_back(x);
     }
-    sort(arr.begin(),arr.end());
     solve(arr.size()-1,sum,arr);
+    sort(ds.begin(),ds.end());
+    for(auto it : ds) cout<<it<<" ";
      //int _t;cin>>_t;while(_t--)  //to run solve() t no. of times where t is no. of testcases
     
 }
